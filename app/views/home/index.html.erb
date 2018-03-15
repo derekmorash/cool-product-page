@@ -5,11 +5,11 @@
     });
   </script>
 <% end %>
-<h2>Products</h2>
+<h2>Themes</h2>
 
 <ul>
-  <% @products.each do |product| %>
-    <li><%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "_top" %></li>
+  <% @themes.each do |theme| %>
+    <li><%= theme.title %></li>
   <% end %>
 </ul>
 
