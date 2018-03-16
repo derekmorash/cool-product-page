@@ -8,6 +8,16 @@
 
 <h2>collections</h2>
 
+<% if @collections.present? %>
+  <ul>
+    <% @collections.each do |collection| %>
+      <li><%= collection.title %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Collections dont exist here</p>
+<% end %>
+
 <hr>
 
 <h2>Webhooks</h2>
