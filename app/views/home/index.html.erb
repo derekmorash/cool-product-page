@@ -8,6 +8,11 @@
 
 <h2>products</h2>
 
+<ul>
+  <% @themes.each do |theme| %>
+    <li>Theme Name: <%= theme.name %></li>
+  <% end %>
+</ul>
 
 <hr>
 
