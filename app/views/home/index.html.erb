@@ -10,7 +10,12 @@
 
 <ul>
   <% @themes.each do |theme| %>
-    <li>Theme Name: <%= theme.name %></li>
+    <li>
+      <p>Theme Name: <%= theme.name %></p>
+      <% if theme.role == "main" %>
+        <p>(Current Theme)</p>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 
