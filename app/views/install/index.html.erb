@@ -19,14 +19,4 @@
 
 <%= form_for( '/install', method: "post", remote: true) do |f| %>
 
-  <strong>Select a theme</strong>
-  <% @themes.each do |theme| %>
-    <label for="<%= "theme_id_#{theme.id}" %>">
-      <%= radio_button_tag 'theme[theme_id]', theme.id, theme.role == "main" ? true : false, id: "theme_id_#{theme.id}" %>
-
-      <span><%= theme.name %><%= " (Current Theme)" if theme.role == "main" %></span>
-    </label>
-  <% end %>
-
-  <%= f.submit :class=>"button" %>
 <% end %>
