@@ -13,9 +13,9 @@ class InstallController < ShopifyApp::AuthenticatedController
     redirect_to install_path
   end
 
-  # private
-  #   def install_params
-  #     params.require(:theme).permit(:theme_id)
-  #   end
+  private
+    def install_params
+      params.require(:theme).permit(:theme_id)
+    end
 
 end
