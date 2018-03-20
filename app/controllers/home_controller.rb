@@ -3,4 +3,8 @@ class HomeController < ShopifyApp::AuthenticatedController
     @themes = ShopifyAPI::Theme.all
     @webhooks = ShopifyAPI::Webhook.find(:all)
   end
+
+  def install
+    @themes = ShopifyAPI::Theme.all
+  end
 end

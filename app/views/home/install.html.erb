@@ -1,0 +1,18 @@
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({ title: "Install" });
+    });
+  </script>
+<% end %>
+
+<h2>Themes</h2>
+
+<ul>
+  <% @themes.each do |theme| %>
+    <li>
+      Theme Name: <%= theme.name %>
+      <%= " (Current Theme)" if theme.role == "main" %>
+    </li>
+  <% end %>
+</ul>
