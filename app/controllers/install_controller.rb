@@ -6,7 +6,7 @@ class HomeController < ShopifyApp::AuthenticatedController
   end
 
   # Gets a theme id and pushes a new asset to the theme based on the id
-  def install
+  def create
     # theme = install_params
 
     # flash[:success] = "Theme selected #{theme.theme_id}"
