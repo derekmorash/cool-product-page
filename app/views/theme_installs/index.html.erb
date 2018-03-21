@@ -10,7 +10,7 @@
 
 <h2>Shop Themes</h2>
 <ul>
-  <% @themes.each do |theme| %>
+  <% @shop_themes.each do |theme| %>
     <li>
       Theme Name: <%= theme.name %>
       <%= " (Current Theme)" if theme.role == "main" %>
