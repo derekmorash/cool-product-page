@@ -1,4 +1,4 @@
-class InstallController < ShopifyApp::AuthenticatedController
+class InstalloldController < ShopifyApp::AuthenticatedController
 
   # display all themes and a form for installing the section
   def index
@@ -7,9 +7,9 @@ class InstallController < ShopifyApp::AuthenticatedController
 
   # Gets a theme id and pushes a new asset to the theme based on the id
   def create
-    theme = install_params
+    # theme = install_params
 
-    flash[:success] = "Theme selected #{theme.theme_id}"
+    flash[:success] = "Theme selected"
     redirect_to install_path
   end
 

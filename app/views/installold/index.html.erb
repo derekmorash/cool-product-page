@@ -17,7 +17,7 @@
   <% end %>
 </ul>
 
-<%= form_for( '/install', method: "post", remote: true) do |f| %>
+<%= form_for( '/install/create', method: "post", remote: true) do |f| %>
 
   <strong>Select a theme</strong>
   <% @themes.each do |theme| %>
@@ -28,5 +28,5 @@
     </label>
   <% end %>
 
-  <%= f.submit :class=>"button" %>
+  <%= f.submit "Install", :class=>"button" %>
 <% end %>
