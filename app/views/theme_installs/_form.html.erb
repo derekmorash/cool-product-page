@@ -18,7 +18,9 @@
     <% @shop_themes.each do |theme| %>
       <li>
         <label for="<%= theme.id %>">
-          <%= form.radio_button :theme_id, theme.id, theme.role == "main" ? true : false %>
+          <!-- form.radio_button :theme_id, theme.id, theme.role == "main" ? true : false -->
+
+          <%= radio_button_tag 'theme_install[theme_id]', theme.id, theme.role == "main" ? true : false, id: "#{theme.id}" %>
   
           <span><%= theme.name %><%= " (Current Theme)" if theme.role == "main" %></span>
         </label>
