@@ -1,0 +1,49 @@
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({ title: "Install" });
+    });
+  </script>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h2>Shop Themes</h2>
+<ul>
+  <% @themes.each do |theme| %>
+    <li>
+      Theme Name: <%= theme.name %>
+      <%= " (Current Theme)" if theme.role == "main" %>
+    </li>
+  <% end %>
+</ul>
+
+<h1>Theme Installs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Shop</th>
+      <th>Shop domain</th>
+      <th>Theme</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @theme_installs.each do |theme_install| %>
+      <tr>
+        <td><%= theme_install.shop_id %></td>
+        <td><%= theme_install.shop_domain %></td>
+        <td><%= theme_install.theme_id %></td>
+        <td><%= link_to 'Show', theme_install %></td>
+        <td><%= link_to 'Edit', edit_theme_install_path(theme_install) %></td>
+        <td><%= link_to 'Destroy', theme_install, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Theme Install', new_theme_install_path %>

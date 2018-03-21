@@ -1,0 +1,2 @@
+module ThemeInstallsHelper
+end

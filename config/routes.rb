@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :theme_installs
   root :to => 'home#index'
   # get 'install', to: 'install#index'
   # post 'install/create', to: 'install#create'

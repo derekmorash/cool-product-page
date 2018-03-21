@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315155551) do
+ActiveRecord::Schema.define(version: 20180321183245) do
 
   create_table "shops", force: :cascade do |t|
     t.string "shopify_domain", null: false
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 20180315155551) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shopify_domain"], name: "index_shops_on_shopify_domain", unique: true
+  end
+
+  create_table "theme_installs", force: :cascade do |t|
+    t.integer "shop_id"
+    t.string "shop_domain"
+    t.integer "theme_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
