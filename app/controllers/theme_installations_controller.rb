@@ -31,7 +31,7 @@ class ThemeInstallationsController < ShopifyApp::AuthenticatedController
 
     respond_to do |format|
       if @theme_installation.save
-        format.html { redirect_to @theme_installation, notice: 'Theme installation was successfully created.' }
+        format.html { redirect_to theme_installations_url, notice: 'Theme installation was successfully created.' }
         format.json { render :show, status: :created, location: @theme_installation }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ThemeInstallationsController < ShopifyApp::AuthenticatedController
   def update
     respond_to do |format|
       if @theme_installation.update(theme_installation_params)
-        format.html { redirect_to @theme_installation, notice: 'Theme installation was successfully updated.' }
+        format.html { redirect_to theme_installations_url, notice: 'Theme installation was successfully updated.' }
         format.json { render :show, status: :ok, location: @theme_installation }
       else
         format.html { render :edit }
