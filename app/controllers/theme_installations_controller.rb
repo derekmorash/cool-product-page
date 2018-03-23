@@ -1,4 +1,4 @@
-class ThemeInstallationsController < ApplicationController
+class ThemeInstallationsController < ShopifyApp::AuthenticatedController
   before_action :set_theme_installation, only: [:show, :edit, :update, :destroy]
 
   # GET /theme_installations
