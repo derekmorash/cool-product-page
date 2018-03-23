@@ -29,6 +29,8 @@ class ThemeInstallationsController < ShopifyApp::AuthenticatedController
     @theme_installation = ThemeInstallation.new(theme_installation_params)
     @theme_installation.shop = Shop.first
 
+    # push a file to the selected theme
+
     respond_to do |format|
       if @theme_installation.save
         format.html { redirect_to theme_installations_url, notice: 'Theme installation was successfully created.' }
