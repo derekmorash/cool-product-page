@@ -31,7 +31,7 @@ class ThemeInstallsController < ShopifyApp::AuthenticatedController
 
     respond_to do |format|
       if @theme_install.save
-        format.html { redirect_to @theme_install, notice: 'Theme install was successfully created.' }
+        format.html { redirect_to theme_installs_url, notice: 'Theme install was successfully created.' }
         format.json { render :show, status: :created, location: @theme_install }
       else
         format.html { render :new }
