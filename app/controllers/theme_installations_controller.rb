@@ -27,7 +27,7 @@ class ThemeInstallationsController < ApplicationController
   # POST /theme_installations.json
   def create
     @theme_installation = ThemeInstallation.new(theme_installation_params)
-    @theme_install.shop = Shop.first
+    @theme_installation.shop = Shop.first
 
     respond_to do |format|
       if @theme_installation.save
@@ -72,6 +72,6 @@ class ThemeInstallationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def theme_installation_params
-      params.require(:theme_installation).permit(:shop_id, :theme_id)
+      params.require(:theme_installation).permit(:theme_id)
     end
 end
