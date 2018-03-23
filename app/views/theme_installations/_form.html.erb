@@ -1,0 +1,41 @@
+<%= form_with(model: theme_installation, local: true) do |form| %>
+  <% if theme_installation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(theme_installation.errors.count, "error") %> prohibited this theme_installation from being saved:</h2>
+
+      <ul>
+      <% theme_installation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+     <!-- form.label :shop_id  -->
+     <!-- form.number_field :shop_id, id: :theme_installation_shop_id  -->
+  </div>
+
+  <div class="field">
+     <!-- form.label :theme_id  -->
+     <!-- form.number_field :theme_id, id: :theme_installation_theme_id  -->
+
+    <strong>Themes</strong>
+    <ul>
+    <% @shop_themes.each do |theme| %>
+      <li>
+        <label for="<%= theme.id %>">
+
+          <%= radio_button_tag 'theme_installation[theme_id]', theme.id, theme.role == "main" ? true : false, id: "#{theme.id}" %>
+  
+          <span><%= theme.name %><%= " (Current Theme)" if theme.role == "main" %></span>
+        </label>
+      </li>
+    <% end %>
+  </ul>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
