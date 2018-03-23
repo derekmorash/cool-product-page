@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   # resources :theme_installs
-  get '/install', to: 'theme_install#index'
-  get '/install/new', to: 'theme_install#new'
-  post '/install', to: 'theme_install#create'
-  delete '/install/:id', to: 'theme_install#destroy'
+  get '/install', to: 'theme_installs#index'
+  get '/install/new', to: 'theme_installs#new'
+  post '/install', to: 'theme_installs#create'
+  delete '/install/:id', to: 'theme_installs#destroy'
   root :to => 'home#index'
   # get 'install', to: 'install#index'
   # post 'install/create', to: 'install#create'
