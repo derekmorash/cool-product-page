@@ -7,7 +7,7 @@
     <tr>
       <th>Shop</th>
       <th>Theme</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -16,8 +16,6 @@
       <tr>
         <td><%= theme_installation.shop_id %></td>
         <td><%= theme_installation.theme_id %></td>
-        <td><%= link_to 'Show', theme_installation %></td>
-        <td><%= link_to 'Edit', edit_theme_installation_path(theme_installation) %></td>
         <td><%= link_to 'Destroy', theme_installation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
