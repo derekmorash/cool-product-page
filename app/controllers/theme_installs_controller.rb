@@ -31,7 +31,7 @@ class ThemeInstallsController < ShopifyApp::AuthenticatedController
 
     respond_to do |format|
       if @theme_install.save
-        format.html { redirect_to theme_installs_url, notice: 'Theme install was successfully created.' }
+        format.html { redirect_to install_url, notice: 'Theme install was successfully created.' }
         format.json { render :show, status: :created, location: @theme_install }
       else
         format.html { render :new }
@@ -59,7 +59,7 @@ class ThemeInstallsController < ShopifyApp::AuthenticatedController
   def destroy
     @theme_install.destroy
     respond_to do |format|
-      format.html { redirect_to theme_installs_url, notice: 'Theme install was successfully destroyed.' }
+      format.html { redirect_to install_url, notice: 'Theme install was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
