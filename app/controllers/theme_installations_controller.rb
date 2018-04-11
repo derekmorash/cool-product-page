@@ -33,10 +33,11 @@ class ThemeInstallationsController < ShopifyApp::AuthenticatedController
 
     respond_to do |format|
       if @theme_installation.save
-        format.html { redirect_to theme_installations_url, notice: 'Theme installation was successfully created.' }
+        format.html {
+          redirect_to theme_installations_url, :flash => { :success => { :title => 'Theme Installed', :body => 'The app was successfully installed in your theme.' } } }
         format.json { render :show, status: :created, location: @theme_installation }
       else
-        format.html { render :new }
+        format.html { render :new, :flash => { :fail => { :title => 'Install Failed', :body => 'The app install failed, please contact support.' } } }
         format.json { render json: @theme_installation.errors, status: :unprocessable_entity }
       end
     end
