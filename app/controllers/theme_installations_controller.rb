@@ -1,11 +1,12 @@
 class ThemeInstallationsController < ShopifyApp::AuthenticatedController
   before_action :set_theme_installation, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /theme_installations
   # GET /theme_installations.json
   def index
     @shop_themes = ShopifyAPI::Theme.all
-    @theme_installations = ThemeInstallation.all
+    @theme_installations = ThemeInstallation.order("#{sort_column} #{sort_direction}")
   end
 
   # GET /theme_installations/1
@@ -26,7 +27,8 @@ class ThemeInstallationsController < ShopifyApp::AuthenticatedController
   # POST /theme_installations
   # POST /theme_installations.json
   def create
-    @theme_installation = ThemeInstallation.new(theme_installation_params)
+    theme = ShopifyAPI::Theme.find(theme_installation_params[:theme_id])
+    @theme_installation = ThemeInstallation.new(theme_id: theme.id, theme_name: theme.name)
     @theme_installation.shop = Shop.first
 
     # push a file to the selected theme
@@ -68,13 +70,26 @@ class ThemeInstallationsController < ShopifyApp::AuthenticatedController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_theme_installation
-      @theme_installation = ThemeInstallation.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def theme_installation_params
-      params.require(:theme_installation).permit(:theme_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_theme_installation
+    @theme_installation = ThemeInstallation.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def theme_installation_params
+    params.require(:theme_installation).permit(:theme_id)
+  end
+
+  def sortable_columns
+    ['theme_id', 'theme_name']
+  end
+
+  def sort_column
+    sortable_columns.include?(params[:column]) ? params[:column] : 'created_at'
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+  end
 end

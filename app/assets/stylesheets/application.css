@@ -14,3 +14,13 @@
  *= require_tree .
  *= require_self
  */
+
+.btn-link.btn-icon {
+  min-height: 2rem;
+  min-width: 2rem;
+  padding: 0;
+}
+.btn.btn-icon >.polaris-icon__svg {
+  margin-left: 0;
+  margin-right: 0;
+}

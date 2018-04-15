@@ -43,8 +43,10 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Shop</th>
-            <th>Theme</th>
+            <th scope="col">Shop ID</th>
+            <th scope="col" class="sort"><%= sort_link "theme_id", "Theme ID" %></th>
+            <th scope="col" class="sort"><%= sort_link "theme_name", "Theme Name" %></th>
+            <th scope="col" class="sort"><%= sort_link "created_at", "Added On" %></th>
             <th></th>
           </tr>
         </thead>
@@ -54,7 +56,9 @@
             <tr>
               <td><%= theme_installation.shop_id %></td>
               <td><%= theme_installation.theme_id %></td>
-              <td><%= link_to raw(destroy_link), theme_installation, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-icon" %></td>
+              <td><%= theme_installation.theme_name %></td>
+              <td><%= theme_installation.created_at %></td>
+              <td><%= link_to raw(destroy_link), theme_installation, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-link btn-icon" %></td>
             </tr>
           <% end %>
         </tbody>
